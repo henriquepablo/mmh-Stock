@@ -6,6 +6,8 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 import Search from "../pages/Search";
+import { Icon } from "@gluestack-ui/themed";
+import { HomeIcon, SearchIcon } from "lucide-react-native";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -16,12 +18,33 @@ function HomeTabs() {
         <Tab.Navigator
             screenOptions={
                 {
-                    headerShown: false
+                    headerShown: false,
+                    tabBarStyle: {
+                        backgroundColor: "#292B37",
+                        borderTopColor: "#292B37"
+                    },
+                    tabBarShowLabel: false
                 }
             }
         >
-            <Tab.Screen name="Home" component={Home}/>
-            <Tab.Screen name="Search" component={Search} />
+            <Tab.Screen name="Home" component={Home}
+                options={
+                    {
+                        tabBarIcon: ({color, size}) => {
+                            return <Icon as={HomeIcon} size='xl' color={color} />;
+                        }
+                    }
+                }
+            />
+            <Tab.Screen name="Search" component={Search} 
+                options={
+                    {
+                        tabBarIcon: ({color, size}) => {
+                            return <Icon as={SearchIcon} size='xl' color={color} />;
+                        }
+                    }
+                }
+            />
         </Tab.Navigator>
     );
 }

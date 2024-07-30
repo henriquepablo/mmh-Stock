@@ -9,7 +9,6 @@ import React from 'react';
 import { StatusBar } from 'react-native';
 import {config} from '@gluestack-ui/config';
 import {GluestackUIProvider, Box, SafeAreaView} from '@gluestack-ui/themed';
-import Item from './src/pages/Item';
 import AppRoutes from './src/routes/Approutes';
 
 function App(): JSX.Element {
